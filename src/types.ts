@@ -21,8 +21,8 @@ interface UserPreferencePublic {
     dx_rating?: number;
     qr_size?: number;
     mask_type?: number;
-    maimaiCode:String,
-    timeLimit: String;
+    maimaiCode:string,
+    timeLimit: string;
 }
 
 interface UserAccountPublic {

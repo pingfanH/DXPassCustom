@@ -9,7 +9,7 @@ import Yamada from "@/assets/ryo.jpg";
 //let Yamada = "https://i.imgur.com/cKYFVoU.png";
 const mask = ref<ImageDetail | undefined>(undefined);
 const maskEnabled = computed(() => mask.value !== undefined)
-// const r = (image?: ImagePublic) => import.meta.env.VITE_URL + "/images/" + image?.id;
+const r = (image?: ImagePublic) => import.meta.env.VITE_URL + "/images/" + image?.id;
 
 // if (props.preferences.mask_type !== 0) {
 //     const serverStore = useServerStore();

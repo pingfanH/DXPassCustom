@@ -13,9 +13,11 @@ const userStore = useUserStore();
 const serverStore = useServerStore();
 const router = useRouter();
 console.log(JSON.parse(JSON.stringify(userStore.userProfile)));
-const userProfile = ref<UserProfile>({preferences:{}}); // Deep copyJSON.parse(JSON.stringify(userStore.userProfile))
+const userProfile = ref<UserProfile>({ preferences: {} } as UserProfile); // Deep copyJSON.parse(JSON.stringify(userStore.userProfile))
 import Yamada from "@/assets/ryo.png";
 const r = (image: ImagePublic) => import.meta.env.VITE_URL + "/images/" + image!.id;
+
+
 
 const prepareDefaultPreferences = () => {
     userProfile.value!.preferences.character_name ="pingfanh"//||= userProfile.value!.preferences.character.name;

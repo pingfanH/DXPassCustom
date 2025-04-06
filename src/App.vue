@@ -29,7 +29,7 @@ const userStore = useUserStore();
 const serverStore = useServerStore();
 const router = useRouter();
 console.log(JSON.parse(JSON.stringify(userStore.userProfile)));
-const userProfile = ref<UserProfile>({preferences:{}}); // Deep copyJSON.parse(JSON.stringify(userStore.userProfile))
+const userProfile = ref<UserProfile>({ preferences: {} } as UserProfile);  // Deep copyJSON.parse(JSON.stringify(userStore.userProfile))
 import Yamada from "@/assets/ryo.png";
 const r = (image: ImagePublic) => import.meta.env.VITE_URL + "/images/" + image!.id;
 
@@ -38,18 +38,19 @@ const prepareDefaultPreferences = () => {
   console.log(code);
   userProfile.value!.preferences.character_name ="リョウ"//||= userProfile.value!.preferences.character.name;
   userProfile.value!.preferences.display_name ="pingfanh";
-  userProfile.value!.preferences.dx_rating =11451 //||= userProfile.value!.player_rating;
+  userProfile.value!.preferences.dx_rating =17000 //||= userProfile.value!.player_rating;
   userProfile.value!.preferences.friend_code ||= "889677537036759"; // this is my friend code
   userProfile.value!.preferences.simplified_code="pingfanh";// ||= userStore.simplifiedCode;
   userProfile.value!.preferences.maimai_version ="Ver.1145" //||= serverStore.serverMessage!.maimai_version;
   userProfile.value!.preferences.maimaiCode = code.maimaiCode;//`http://wq.sys-allnet.cn/qrcode/img/${code.maimaiCode}.png?v`;
+  
   userProfile.value!.preferences.timeLimit = secondsToHMS(code.timeLimit);
 
 }
 
 prepareDefaultPreferences();
 
-function secondsToHMS(totalSeconds) {
+function secondsToHMS(totalSeconds:any) {
 
 // 计算 UTC 时间的小时、分钟和秒
   const utcHours = Math.floor((totalSeconds % 86400) / 3600); // UTC 小时
@@ -90,7 +91,7 @@ function secondsToHMS(totalSeconds) {
       </div>
       <div class="qr-widget absolute" v-if="userProfile.preferences">
 <!--        <img :src="userProfile.preferences.maimaiCode" style="width: 40dvw">-->
-        <QRCode :content="userProfile.preferences.maimaiCode" :size="userProfile.preferences.qr_size || 20" />
+        <QRCode :content="userProfile.preferences.maimaiCode" :size="userProfile.preferences.qr_size || 30" />
       </div>
       <div class="flex absolute bottom-0 items-center justify-center w-full h-8">
         <div class="footer-widget flex justify-between py-1 rounded-2xl bg-gray-800 text-white opacity-85">

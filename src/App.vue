@@ -91,7 +91,7 @@ function secondsToHMS(totalSeconds:any) {
       </div>
       <div class="qr-widget absolute" v-if="userProfile.preferences">
 <!--        <img :src="userProfile.preferences.maimaiCode" style="width: 40dvw">-->
-        <QRCode :content="userProfile.preferences.maimaiCode" :size="userProfile.preferences.qr_size || 30" />
+        <QRCode :content="userProfile.preferences.maimaiCode" :size="userProfile.preferences.qr_size || 25" />
       </div>
       <div class="flex absolute bottom-0 items-center justify-center w-full h-8">
         <div class="footer-widget flex justify-between py-1 rounded-2xl bg-gray-800 text-white opacity-85">
